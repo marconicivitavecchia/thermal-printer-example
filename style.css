@@ -1,0 +1,19 @@
+#productTable {
+    display: table;
+    width: 100%;
+}
+
+.productRow {
+    display: table-row;
+    width: 100%;
+}
+
+.productHeader {
+    font-weight: bold;
+    
+}
+.productCell {
+    display: table-cell;
+    width: 33%;
+    height: 1.5em;
+}
