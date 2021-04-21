@@ -42,7 +42,7 @@ let app = {
             var canvas = document.getElementById('canvas');
             var printer = null;
             var ePosDev = new epson.ePOSDevice();
-            ePosDev.connect('192.168.192.168', 8008, cbConnect);
+            ePosDev.connect('192.168.220.37', 8008, cbConnect);
             function cbConnect(data) {
                 if (data == 'OK') {
                     ePosDev.createDevice('local_printer', ePosDev.DEVICE_TYPE_PRINTER, { 'crypto': true, 'buffer': false }, cbCreateDevice_printer);
@@ -91,6 +91,7 @@ let app = {
                     const quantityText = p.quantity.toString().padStart(quantityLength, " ").substring(0, quantityLength);
                     const priceTotText = (p.priceUnit * p.quantity).toFixed(2).toString().concat("€").padStart(pricetTotLength, " ").substring(0, pricetTotLength);
 
+                    const text = `${nameText}\t${quantityText}\t${priceTotText}\n`;
                     printer.addTextAlign(printer.ALIGN_LEFT);
                     printer.addText(`${nameText}`);
                     printer.addTextAlign(printer.ALIGN_RIGHT);
